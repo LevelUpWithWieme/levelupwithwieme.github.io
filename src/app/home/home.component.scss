@@ -1,0 +1,26 @@
+@use '../../styles/_variables' as _variables;
+
+.home {
+    .home-header {
+        height: 100vh;
+        min-height: 500px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-blend-mode: darken;
+        background-color: _variables.$dark_purple;
+    }
+
+    .text {
+        color: _variables.$light_purple;
+        font-family: 'windSong', cursive;
+
+        .main {
+            font-size: 10vh;
+        }
+
+        .sub {
+            font-size: 5vh;
+        }
+    }
+}
