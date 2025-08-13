@@ -1,0 +1,5 @@
+@use '../styles/_variables' as _variables;
+
+.navbar-color {
+    background-color: _variables.$dark_purple;
+}
