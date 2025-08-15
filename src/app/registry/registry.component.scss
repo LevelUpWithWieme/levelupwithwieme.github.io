@@ -1,0 +1,19 @@
+@use '../../styles/_variables'as _variables;
+
+
+.zola-registry {
+  background-color: _variables.$light_purple;
+  color: _variables.$dark_purple;
+
+  .header {
+    // padding: 5vh;
+    font-family: 'WindSong', cursive;
+  }
+
+  .body {
+    font-family: 'roboto', sans-serif;
+    // padding-bottom: 1rem;
+  }
+
+  .registry {}
+}
