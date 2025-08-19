@@ -1,0 +1,19 @@
+.thumb-img {
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.thumb-img.active {
+    border-color: #0d6efd;
+}
+
+.thumbs {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.carousel-container {
+    flex-grow: 1;
+}
