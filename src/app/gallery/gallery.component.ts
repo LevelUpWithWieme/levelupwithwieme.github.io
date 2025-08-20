@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common'; // ✅ Import NgFor
+import { Component,OnInit,Renderer2 } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { COLORS } from '../../styles/variables';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
   imports: [NgFor],
   templateUrl: './gallery.component.html',
-  styleUrl: './gallery.component.scss'
+  styleUrls: ['./gallery.component.scss'] // <-- plural
 })
 export class GalleryComponent {
   images = [
@@ -21,7 +22,14 @@ export class GalleryComponent {
     this.activeIndex = index;
   }
 
-  onSlide(event: any) {
-    this.activeIndex = event.to;
-  }
+  constructor(private renderer: Renderer2) { }
+
+    ngOnInit(): void {
+      this.renderer.setStyle(document.body, 'background-color', COLORS.darkGray); // or use _variables.$light_purple
+    }
+
+    ngOnDestroy(): void {
+      // Optional: reset body background when leaving the component
+      this.renderer.removeStyle(document.body, 'background-color');
+    }
 }

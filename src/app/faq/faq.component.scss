@@ -1,0 +1,55 @@
+@use '../../styles/_variables'as _variables;
+
+
+/* Accordion button background */
+#accordionAll .accordion-button {
+  background-color: _variables.$light_purple;
+  /* dark purple */
+  color: _variables.$dark_purple;
+}
+
+/* Change color when expanded */
+#accordionAll .accordion-button:not(.collapsed) {
+  background-color: _variables.$dark_purple;
+  /* lighter purple when open */
+  color: white;
+}
+
+/* Accordion body background */
+#accordionAll .accordion-body {
+  background-color: _variables.$light_purple;
+  /* lavender for contrast */
+}
+
+/* Section headers */
+#accordionAll .ceremony-header {
+  background-color: #9370DB;
+  /* medium purple */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+#accordionAll .guests-header {
+  background-color: #9370DB;
+  /* medium purple-light */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+#accordionAll .reception-header {
+  background-color: #9370DB;
+  /* blue violet */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+#accordionAll .misc-header {
+  background-color: #9370DB;
+  /* orchid */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+}

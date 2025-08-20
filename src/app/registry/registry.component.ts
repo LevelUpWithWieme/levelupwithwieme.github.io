@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Renderer2 } from '@angular/core';
+import { COLORS } from '../../styles/variables';
 
 @Component({
   selector: 'app-registry',
@@ -26,6 +27,15 @@ export class RegistryComponent implements AfterViewInit {
       }
     }
   }
+
+    ngOnInit(): void {
+      this.renderer.setStyle(document.body, 'background-color', COLORS.lightPurple); // or use _variables.$light_purple
+    }
+
+    ngOnDestroy(): void {
+      // Optional: reset body background when leaving the component
+      this.renderer.removeStyle(document.body, 'background-color');
+    }
 
 
 
