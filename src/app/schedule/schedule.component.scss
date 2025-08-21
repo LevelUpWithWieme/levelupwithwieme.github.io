@@ -1,0 +1,7 @@
+@use '../../styles/_variables' as _variables;
+
+.header {
+    // padding: 5vh;
+    font-family: 'WindSong', cursive;
+    color: _variables.$dark_purple;
+}

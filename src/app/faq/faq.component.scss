@@ -1,4 +1,4 @@
-@use '../../styles/_variables'as _variables;
+@use '../../styles/_variables' as _variables;
 
 
 /* Accordion button background */
@@ -6,6 +6,7 @@
   background-color: _variables.$light_purple;
   /* dark purple */
   color: _variables.$dark_purple;
+  font-family: 'roboto', sans-serif;
 }
 
 /* Change color when expanded */

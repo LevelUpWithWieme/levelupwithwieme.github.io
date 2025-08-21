@@ -1,1 +1,13 @@
-<p>schedule works!</p>
+<div class="container my-5">
+    <h2 class="header mb-4">Wedding Day Schedule</h2>
+
+    <div *ngFor="let event of dayOfEvents" class="card mb-3 shadow-sm">
+        <div class="card-body d-flex align-items-start">
+            <div class="me-3 fs-2">{{ event.icon }}</div>
+            <div>
+                <h5 class="card-title text-primary">{{ event.time }} – {{ event.title }}</h5>
+                <p class="card-text">{{ event.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>

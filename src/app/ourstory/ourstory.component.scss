@@ -1,0 +1,17 @@
+@use '../../styles/_variables' as _variables;
+
+
+
+
+.ourstory {
+    color: _variables.$dark_purple;
+
+    .header {
+        // padding: 5vh;
+        font-family: 'WindSong', cursive;
+    }
+
+    .lead {
+        font-family: 'roboto', sans-serif;
+    }
+}

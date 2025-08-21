@@ -1,1 +1,69 @@
-<p>travel works!</p>
+<div class="container my-5">
+    <!-- Venue Card -->
+    <div class="card mb-5 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">Venue</h2>
+            <p>The ceremony and reception will be held at:</p>
+            <p class="fw-semibold">{{ venue.name }}<br>{{ venue.address }}</p>
+            <div class="ratio ratio-16x9">
+                <iframe [src]="venue.mapsLink | safeUrl" style="border:0;" allowfullscreen loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hotels -->
+    <div class="card mb-5 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">Where to Stay</h2>
+            <div class="list-group">
+                <a *ngFor="let hotel of hotels" [href]="hotel.link" target="_blank"
+                    class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ hotel.name }}</h5>
+                        <small>{{ hotel.distance }}</small>
+                    </div>
+                    <small class="text-primary">Book Here →</small>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Travel Info -->
+    <div class="card mb-5 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">Getting Here</h2>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let info of travelInfo" class="list-group-item">{{ info }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Things to Do -->
+    <div class="card mb-5 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">Things To Do Around Rochester</h2>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let thing of thingsToDo" class="list-group-item">
+                    <a [href]="thing.link" target="_blank" class="fw-bold text-decoration-none">
+                        {{ thing.name }}
+                    </a> – {{ thing.description }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-5 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">Budget Eats Around Rochester</h2>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let eat of budgetEats" class="list-group-item">
+                    <a [href]="eat.link" target="_blank" class="fw-bold text-decoration-none">
+                        {{ eat.name }}
+                    </a> – {{ eat.description }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
