@@ -7,11 +7,22 @@
     color: _variables.$dark_purple;
 
     .header {
-        // padding: 5vh;
         font-family: 'WindSong', cursive;
     }
 
     .lead {
         font-family: 'roboto', sans-serif;
+    }
+}
+
+.ourstory img {
+    border: 5px solid #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05) rotate(-1deg);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
     }
 }

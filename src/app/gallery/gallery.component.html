@@ -1,41 +1,39 @@
-<div class="gallery">
-  <div class="d-flex">
-    <!-- Thumbnails -->
-    <div class="thumbs d-flex flex-column me-3">
-      <img
-        *ngFor="let img of images; let i = index"
-        [src]="img.src"
-        [alt]="img.alt"
-        width="100"
-        class="thumb-img"
-        [class.active]="i === activeIndex"
-        (click)="setActive(i)" />
-    </div>
-
-    <!-- Carousel (Angular-controlled; no Bootstrap JS) -->
-    <div class="carousel-container flex-grow-1">
-      <div class="carousel slide">
-        <div class="carousel-inner">
-          <div
-            *ngFor="let img of images; let i = index"
-            class="carousel-item"
-            [class.active]="i === activeIndex">
-            <!-- IMPORTANT: no 'w-100' here -->
-            <img [src]="img.src" [alt]="img.alt" />
-          </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button"
-          (click)="setActive((activeIndex - 1 + images.length) % images.length)">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-
-        <button class="carousel-control-next" type="button"
-          (click)="setActive((activeIndex + 1) % images.length)">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
+<div class="gallery-container d-flex">
+  <!-- Thumbnails -->
+  <div class="thumbs">
+    <div *ngFor="let img of images; let i = index" class="thumb-wrapper" [class.active]="i === activeIndex"
+      (click)="setActive(i)">
+      <img [src]="img.src" [alt]="img.alt" />
     </div>
   </div>
 
+  <!-- Main Carousel -->
+  <div class="carousel-container flex-grow-1">
+    <div class="carousel-inner">
+      <div *ngFor="let img of images; let i = index" class="carousel-item" [class.active]="i === activeIndex">
+        <img [src]="img.src" [alt]="img.alt" (click)="openLightbox(img.src)" />
+      </div>
+
+      <button class="carousel-control-prev" type="button"
+        (click)="setActive((activeIndex - 1 + images.length) % images.length)">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <button class="carousel-control-next" type="button" (click)="setActive((activeIndex + 1) % images.length)">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="modal fade" id="galleryLightbox" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body text-center p-0">
+        <img [src]="lightboxImage" class="img-fluid rounded polaroid" alt="Lightbox Image">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+    </div>
+  </div>
 </div>

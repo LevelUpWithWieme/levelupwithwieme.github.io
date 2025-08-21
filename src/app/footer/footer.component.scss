@@ -1,0 +1,47 @@
+.site-footer {
+    background-color: #f8f9fa;
+    color: #444;
+
+    .footer-header {
+        font-weight: bold;
+        color: #6f42c1;
+        margin-bottom: 1rem;
+    }
+
+    .footer-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .footer-links a {
+        color: #444;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #6f42c1;
+        }
+    }
+
+    i {
+        font-size: 1.5rem;
+        color: #6f42c1;
+        transition: transform 0.3s, color 0.3s;
+
+        &:hover {
+            transform: scale(1.2);
+            color: #5936a2;
+        }
+    }
+}
+
+:host {
+    display: block;
+    background-color: #6f42c1;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}

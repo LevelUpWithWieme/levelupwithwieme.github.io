@@ -1,26 +1,53 @@
 @use '../../styles/_variables' as _variables;
 
-.home {
-    .home-header {
-        height: 100vh;
-        min-height: 500px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-blend-mode: darken;
-        background-color: _variables.$dark_purple;
+.home-header {
+    background-image: url("../../../public/assets/placeholderimg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
     }
 
     .text {
-        color: _variables.$light_purple;
-        font-family: 'windSong', cursive;
+        position: relative;
+        z-index: 1;
 
         .main {
-            font-size: 10vh;
+            font-family: 'WindSong', cursive;
+            font-size: 4rem;
+            margin: 0;
+
+            @media (max-width: 768px) {
+                font-size: 2.5rem;
+            }
         }
 
         .sub {
-            font-size: 7.5vh;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            font-family: 'roboto', sans-serif;
+        }
+
+        .countdown {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            font-family: 'roboto', sans-serif;
+
+            span {
+                font-weight: bold;
+                margin: 0 5px;
+            }
         }
     }
 }

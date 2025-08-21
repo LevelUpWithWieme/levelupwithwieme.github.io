@@ -1,73 +1,108 @@
-@use '../../styles/_variables'as _variables;
+@use '../../styles/_variables' as _variables;
 
-/* Thumbs (yours) */
-.thumb-img {
-  cursor: pointer;
-  margin-bottom: 10px;
-  border: 2px solid transparent;
-  transition: 0.3s;
-}
-
-.thumb-img.active {
-  border-color: #0d6efd;
-}
-
-.thumbs {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-/* Stage keeps arrows fixed & prevents layout jump */
-.carousel-container {
-  position: relative;
-  flex-grow: 1;
-  height: 500px;
-  /* fixed "stage" height */
-  overflow: hidden;
-  /* no spillover */
-}
-
-/* Let Bootstrap keep its default .carousel-item { display: none }.
-   We ONLY set display when active, so switching works again. */
-.carousel-inner,
-.carousel-item {
-  height: 100%;
-}
-
-.carousel-item.active {
+.gallery-container {
   display: flex;
-  /* show only the active slide */
-  align-items: center;
-  /* center vertically */
-  justify-content: center;
-  /* center horizontally */
-}
+  gap: 1rem;
 
-/* Natural proportions inside the box (no cropping, no stretch) */
-.carousel-item img {
-  max-height: 100%;
-  max-width: 100%;
-  height: auto;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
+  .thumbs {
+    width: 80px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 6px;
+    box-sizing: content-box;
 
-/* Keep arrows locked in the vertical center of the stage */
-.carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-}
+    .thumb-wrapper {
+      flex: 0 0 auto;
+      width: 100%;
+      height: 80px;
+      overflow: hidden;
+      border-radius: 5px;
+      border: 3px solid #fff;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-size: 100% 100%;
-  filter: invert(1);
-  /* 👈 makes them white for dark bg; remove if you want default */
-  width: 2rem;
-  height: 2rem;
+      &.active {
+        border-color: _variables.$dark_purple;
+        box-shadow: 0 10px 20px _variables.$dark_purple;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 10px 20px _variables.$dark_purple;
+        }
+      }
+    }
+  }
+
+  .carousel-container {
+    flex-grow: 1;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    .carousel-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-item {
+      display: none;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+
+      &.active {
+        display: flex;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; // fit fully inside container
+        border: 5px solid #fff;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      span {
+        filter: invert(1);
+      }
+    }
+  }
 }
